@@ -1003,7 +1003,14 @@ app.use('*', function(req,res){
     res.json({ url: req.protocol + '://' + req.get('host') + req.originalUrl });
     
 })
-var server = app.listen(8081, function () {
+
+/**
+ * Get port from environment and store in Express.
+ */
+const port = process.env.PORT || '8081';
+app.set('port', port);
+
+var server = app.listen(port, function () {
    var host = server.address().address
    var port = server.address().port
    
