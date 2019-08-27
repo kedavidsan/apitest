@@ -1,0 +1,32 @@
+{
+  "name": "co.uniandes.miso4202.nodejs.apitest",
+  "version": "1.0.0",
+  "description": "Mock API for countries and students",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "countrycitystatejson": "^0.2.12",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MISO4202/co.uniandes.miso4202.nodejs.apitest.git"
+  },
+  "keywords": [
+    "API",
+    "MOCK",
+    "UNIANDES",
+    "MISO4202"
+  ],
+  "author": "Kevin Sanchez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MISO4202/co.uniandes.miso4202.nodejs.apitest/issues"
+  },
+  "homepage": "https://github.com/MISO4202/co.uniandes.miso4202.nodejs.apitest#readme"
+}
