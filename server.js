@@ -911,6 +911,7 @@ var students=[{
 
 app.get('/api/v1/countries', function (req, res) {
     var resp=countries.getCountries();
+    res.setHeader("Content-Type", "application/json");
     res.json(resp);
 });
 app.get('/api/v1/countries/:country', function (req, res) {
@@ -918,9 +919,11 @@ app.get('/api/v1/countries/:country', function (req, res) {
    var resp=countries.getCountryInfoByShort(country);
    if(resp)
    {
+       res.setHeader("Content-Type", "application/json");
     res.json(resp);
    }
    else{
+       res.setHeader("Content-Type", "application/json");
     res.status(404);
     res.json({ url: req.protocol + '://' + req.get('host') + req.originalUrl });
     
@@ -932,9 +935,11 @@ app.get('/api/v1/countries/:country/states', function (req, res) {
     var resp=countries.getStatesByShort(country)
     if(resp)
     {
+        res.setHeader("Content-Type", "application/json");
         res.json(resp);
     }
     else{
+        res.setHeader("Content-Type", "application/json");
         res.status(404);
         res.json({ url: req.protocol + '://' + req.get('host') + req.originalUrl });
     }
@@ -946,9 +951,11 @@ app.get('/api/v1/countries/:country/cities', function (req, res) {
     var resp=countries.getCities(country,state)
     if(resp&&resp.length>0)
     {
+        res.setHeader("Content-Type", "application/json");
         res.json(resp);
     }
     else{
+        res.setHeader("Content-Type", "application/json");
         res.status(404);
         res.json({ url: req.protocol + '://' + req.get('host') + req.originalUrl });
     
@@ -963,9 +970,11 @@ app.get('/api/v1/students/:id', function (req, res) {
     var resp=students[id-1];
     if(resp)
     {
+        res.setHeader("Content-Type", "application/json");
         res.json(resp);
     }
     else{
+        res.setHeader("Content-Type", "application/json");
         res.status(404);
         res.json({ url: req.protocol + '://' + req.get('host') + req.originalUrl });    
     }
@@ -975,9 +984,11 @@ app.delete('/api/v1/students/:id', function (req, res) {
     var resp=students[id-1];
     if(resp)
     {
+        res.setHeader("Content-Type", "application/json");
         res.json({status:"success",message:"Student removed"});
     }
     else{
+        res.setHeader("Content-Type", "application/json");
         res.status(404);
         res.json({ url: req.protocol + '://' + req.get('host') + req.originalUrl });    
     }
@@ -988,17 +999,21 @@ app.post('/api/v1/students', function (req, res) {
         &&student.gender&&student.code&&student.country
         &&student.city&&student.university)
     {
+        res.setHeader("Content-Type", "application/json");
         res.json({status:"success",message:"Student added"});
     }else if(student){
+        res.setHeader("Content-Type", "application/json");
         res.status(400);
         res.json({status:"error",message:"Student incomplete"});
     }
     else{
+        res.setHeader("Content-Type", "application/json");
         res.status(404);
         res.json({ url: req.protocol + '://' + req.get('host') + req.originalUrl });    
     }
 });
 app.use('*', function(req,res){
+    res.setHeader("Content-Type", "application/json");
     res.status(404)    
     res.json({ url: req.protocol + '://' + req.get('host') + req.originalUrl });
     
